@@ -1,0 +1,17 @@
+body{
+   margin: 0;
+            padding: 0;
+            background-image: url('https://www.hdwallpapers.in/download/pink_purple_blue_flowers_petals_in_light_purple_blue_background_hd_blue-1600x900.jpg'); 
+            background-size: cover;
+            background-position: center;
+}
+header{
+  text-align:center;
+}
+.container{
+  background:white;
+  text-align:center;
+}
+form{
+  vertical-align:center;
+}
