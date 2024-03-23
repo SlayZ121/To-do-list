@@ -11,13 +11,14 @@
 		integrity=
 "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 		crossorigin="anonymous">
-
-	<script src="app.js"></script>
-
-	<title>To Do List</title>
+<link rel="stylesheet" href="home.css">
+<title>to-dolist</title>
 </head>
+	 
+
 
 <body>
+    <script src="home.js"></script>
 	<header class="text-white p-5">
         <div class="containerr">
             <div class="row">
@@ -32,34 +33,35 @@
         </div>
     </header>
 
-	<div class="container mt-3">
-		<h2>Add Items</h2>
+	<div class="container mt-3 add-items">
+		<h2 class="text-center">Add Items</h2>
 
 		<label id="lblsuccess" class="text-success"
 				style="display: none;">
 		</label>
 		
 		<form id="addForm">
-			<div class="row">
-				<div class="col-lg-7 col-md-7 col-sm-7">
-
+			<div class="row justify-content-center">
+				<div class="box col-lg-6 col-md-9 col-sm-7">
 					<input type="text" onkeyup=
 						"toggleButton(this, 'submit')"
-						class="form-control" id="item">
+						class="form-control text-center" id="item">
 				</div>
 
-				<div class="col-lg-5 col-md-5 col-sm-5">
+				<div class="bton">
 				<input type="submit" class="btn btn-dark"
-						id="submit" value="Submit" disabled>
+						id="submit" value="Add" disabled>
 				</div>
 			</div>
 		</form>
 
 		<h3 class="mt-4">Tasks</h3>
 
-		<form id="addForm">
-			<ul class="list-group" id="items"></ul>
-		</form>
+		
+			<ul class="list-group" id="items">
+				<li id="noTasks" class="list-group-item text-center">No tasks yet</li>
+			</ul>
+		
 	</div>
 </body>
 
