@@ -1,98 +1,113 @@
-// app.js
 window.onload = () => {
-	const form1 = document.querySelector("#addForm");
+    const form1 = document.querySelector("#addForm");
 
-	let items = document.getElementById("items");
-	let submit = document.getElementById("submit");
+    let items = document.getElementById("items");
+    let submit = document.getElementById("submit");
 
-	let editItem = null;
+    let editItem = null;
 
-	form1.addEventListener("submit", addItem);
-	items.addEventListener("click", removeItem);
+    form1.addEventListener("submit", addItem);
+    items.addEventListener("click", removeItem);
+    
 };
 
 function addItem(e) {
-	e.preventDefault();
+    e.preventDefault();
 
-	if (submit.value != "Submit") {
-		console.log("Hello");
+    console.log("Adding item...");
 
-		editItem.target.parentNode.childNodes[0].data
-			= document.getElementById("item").value;
+    if (submit.value != "Add") {
+        console.log("Editing item...");
 
-		submit.value = "Submit";
-		document.getElementById("item").value = "";
+        editItem.target.parentNode.childNodes[0].data
+            = document.getElementById("item").value;
 
-		document.getElementById("lblsuccess").innerHTML
-			= "Text edited successfully";
+        submit.value = "Submit";
+        document.getElementById("item").value = "";
 
-		document.getElementById("lblsuccess")
-						.style.display = "block";
+        document.getElementById("lblsuccess").innerHTML
+            = "Text edited successfully";
 
-		setTimeout(function() {
-			document.getElementById("lblsuccess")
-							.style.display = "none";
-		}, 3000);
+        document.getElementById("lblsuccess")
+                        .style.display = "block";
 
-		return false;
-	}
+        setTimeout(function() {
+            document.getElementById("lblsuccess")
+                            .style.display = "none";
+        }, 3000);
 
-	let newItem = document.getElementById("item").value;
-	if (newItem.trim() == "" || newItem.trim() == null)
-		return false;
-	else
-		document.getElementById("item").value = "";
+        return false;
+    }
 
-	let li = document.createElement("li");
-	li.className = "list-group-item";
+    let newItem = document.getElementById("item").value;
+    if (newItem.trim() == "" || newItem.trim() == null)
+        return false;
+    else
+        document.getElementById("item").value = "";
 
-	let deleteButton = document.createElement("button");
+    let li = document.createElement("li");
+    li.className = "list-group-item";
 
-	deleteButton.className =
-		"btn-danger btn btn-sm float-right delete";
+    let deleteButton = document.createElement("button");
 
-	deleteButton.appendChild(document.createTextNode("Delete"));
+    deleteButton.className =
+        "btn-danger btn btn-sm float-right delete";
 
-	let editButton = document.createElement("button");
+    deleteButton.appendChild(document.createTextNode("Delete"));
 
-	editButton.className =
-			"btn-success btn btn-sm float-right edit";
+    let editButton = document.createElement("button");
 
-	editButton.appendChild(document.createTextNode("Edit"));
+    editButton.className =
+            "btn-success btn btn-sm float-right edit";
+    editButton.style.marginRight = "10px";
 
-	li.appendChild(document.createTextNode(newItem));
-	li.appendChild(deleteButton);
-	li.appendChild(editButton);
+    editButton.appendChild(document.createTextNode("Edit"));
 
-	items.appendChild(li);
+    li.appendChild(document.createTextNode(newItem));
+    li.appendChild(deleteButton);
+    li.appendChild(editButton);
+
+    items.appendChild(li);
+
+    console.log("Number of items:", items.children.length);
+
+    document.getElementById("noTasks").style.display = items.children.length === 0 ? "block" : "none";
+
+    // Adjust container height to dynamically extend as more tasks are added
+    document.querySelector(".container").style.height = "auto";
 }
 
 function removeItem(e) {
-	e.preventDefault();
-	if (e.target.classList.contains("delete")) {
-		if (confirm("Are you Sure?")) {
-			let li = e.target.parentNode;
-			items.removeChild(li);
-			document.getElementById("lblsuccess").innerHTML
-				= "Text deleted successfully";
+    e.preventDefault();
 
-			document.getElementById("lblsuccess")
-						.style.display = "block";
+    console.log("Removing item...");
 
-			setTimeout(function() {
-				document.getElementById("lblsuccess")
-						.style.display = "none";
-			}, 3000);
-		}
-	}
-	if (e.target.classList.contains("edit")) {
-		document.getElementById("item").value =
-			e.target.parentNode.childNodes[0].data;
-		submit.value = "EDIT";
-		editItem = e;
-	}
+    if (e.target.classList.contains("delete")) {
+        if (confirm("Are you Sure?")) {
+            let li = e.target.parentNode;
+            items.removeChild(li);
+            document.getElementById("lblsuccess").innerHTML
+                = "Text deleted successfully";
+
+            document.getElementById("lblsuccess")
+                        .style.display = "block";
+
+            setTimeout(function() {
+                document.getElementById("lblsuccess")
+                        .style.display = "none";
+            }, 3000);
+        }
+    }
+    if (e.target.classList.contains("edit")) {
+        document.getElementById("item").value =
+            e.target.parentNode.childNodes[0].data;
+        submit.value = "EDIT";
+        editItem = e;
+    }
+
+    document.getElementById("noTasks").style.display = items.children.length === 0 ? "block" : "none";
 }
 
 function toggleButton(ref, btnID) {
-	document.getElementById(btnID).disabled = false;
+    document.getElementById(btnID).disabled = false;
 }
