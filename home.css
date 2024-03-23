@@ -1,17 +1,54 @@
 body{
-   margin: 0;
-            padding: 0;
-            background-image: url('https://www.hdwallpapers.in/download/pink_purple_blue_flowers_petals_in_light_purple_blue_background_hd_blue-1600x900.jpg'); 
-            background-size: cover;
-            background-position: center;
+    margin: 0;
+             padding: 0;
+             background-image: url('https://png.pngtree.com/background/20230317/original/pngtree-aesthetic-cute-pastel-background-picture-image_2148917.jpg'); 
+             background-size: cover;
+             background-position: center;
+             background-repeat: no-repeat;
+             
+ }
+ html, body {
+    height: 100%;
 }
-header{
-  text-align:center;
+ header{
+   text-align:center;
+ }
+ .container{
+   background:white;
+   text-align:center;
+
+ }
+ form{
+   vertical-align:center;
+ }
+ .box{
+    padding-right: 1.5rem;
+ }
+ .add-items{
+    margin-bottom: 50px;
+    padding-top:1rem;
+    height:auto;
+ }
+ .list-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom:1.5rem;
+    padding-bottom:1.5rem;
+     /* Center items horizontally */
 }
-.container{
-  background:white;
-  text-align:center;
+
+.list-group-item {
+    text-align: center;
+    width: 50%;
+    height: 50px;
+    border-top: 4px solid #b9b2b2;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 10px; /* Add some margin between each item */
 }
-form{
-  vertical-align:center;
+
+/* Remove margin from the last list item */
+.list-group-item:last-child {
+    margin-bottom: 0;
 }
